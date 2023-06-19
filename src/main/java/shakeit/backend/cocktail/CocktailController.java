@@ -26,6 +26,11 @@ public class CocktailController {
         return service.add(cocktail);
     };
 
+    @PostMapping("/create")
+    public Cocktail create(@RequestBody Cocktail cocktail) {
+        return service.create(cocktail);
+    }
+
     @PutMapping("/update/{id}")
     public Cocktail update(@RequestBody Cocktail cocktail, @PathVariable Long id){
         return service.update(cocktail, id);

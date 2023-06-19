@@ -23,8 +23,8 @@ public class IngredientController {
     };
 
     @PostMapping("/add")
-        public Ingredient add(@RequestBody Ingredient ingredient){
-            return service.add(ingredient);
+        public List<Ingredient> add(@RequestBody List<Ingredient> ingredientList){
+            return service.add(ingredientList);
         };
 
     @PutMapping("/update/{id}")

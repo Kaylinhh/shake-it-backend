@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import shakeit.backend.category.Category;
 import shakeit.backend.ingredient.Ingredient;
 
 import java.util.HashSet;
@@ -23,8 +24,14 @@ public class Cocktail {
     private Long id;
     private String label;
 
-    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @ManyToMany(cascade = { CascadeType.MERGE, CascadeType.REMOVE })
+    @JoinTable(
+            name = "CocktailIngredient",
+            joinColumns =  @JoinColumn(name = "cocktail_id"),
+            inverseJoinColumns = @JoinColumn(name = "ingredient_id")
+    )
     @JsonIgnoreProperties("cocktailList")
     private Set<Ingredient> ingredientList = new HashSet<>();
+
 
 }

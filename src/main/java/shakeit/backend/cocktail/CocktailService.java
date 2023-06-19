@@ -2,6 +2,7 @@ package shakeit.backend.cocktail;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import shakeit.backend.ingredient.Ingredient;
 
 import java.util.List;
 
@@ -27,8 +28,19 @@ public class CocktailService {
     };
 
     public Cocktail add(Cocktail cocktail){
+
         return repository.save(cocktail);
     };
+
+    public Cocktail create(Cocktail cocktail){
+        for (Ingredient ingredient : cocktail.getIngredientList()) {
+            Ingredient existingIngredient = repository.findIngredientById(ingredient.getId());
+            if (existingIngredient == null){
+                throw new IllegalArgumentException("Ingredient with id" + ingredient.getId() + "not found");
+            }
+        }
+        return repository.save(cocktail);
+    }
 
     public void delete(Long id){
         repository.deleteById(id);

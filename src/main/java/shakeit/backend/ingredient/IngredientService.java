@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.ListResourceBundle;
 
 @Service
 @RequiredArgsConstructor
@@ -26,8 +27,9 @@ public class IngredientService {
         return repository.save(found);
     };
 
-    public Ingredient add(Ingredient ingredient){
-        return repository.save(ingredient);
+    public List<Ingredient> add(List<Ingredient> ingredientList){
+
+        return repository.saveAll(ingredientList);
     };
     
     public void delete(Long id){

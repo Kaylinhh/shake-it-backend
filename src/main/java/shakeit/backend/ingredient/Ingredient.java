@@ -23,7 +23,7 @@ public class Ingredient {
     private Long id;
     private String label;
 
-    @ManyToMany(mappedBy = "ingredientList")
+    @ManyToMany
     @JsonIgnore
     private Set<Cocktail> cocktailList = new HashSet<>();
 
