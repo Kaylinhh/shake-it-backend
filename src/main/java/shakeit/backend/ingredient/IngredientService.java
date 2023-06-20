@@ -24,6 +24,7 @@ public class IngredientService {
     public Ingredient update(Ingredient ingredient, Long id){
         Ingredient found = getById(id);
         found.setLabel(ingredient.getLabel());
+        found.setIcon(ingredient.getIcon());
         return repository.save(found);
     };
 

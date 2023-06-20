@@ -22,6 +22,7 @@ public class Ingredient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String label;
+    private String icon;
 
     @ManyToMany
     @JsonIgnore

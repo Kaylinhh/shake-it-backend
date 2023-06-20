@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import shakeit.backend.category.Category;
 import shakeit.backend.ingredient.Ingredient;
 
 import java.util.HashSet;
