@@ -24,7 +24,7 @@ public class Cocktail {
     private Long id;
     private String label;
 
-    @ManyToMany(cascade = { CascadeType.MERGE, CascadeType.REMOVE })
+    @ManyToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST })
     @JoinTable(
             name = "CocktailIngredient",
             joinColumns =  @JoinColumn(name = "cocktail_id"),
